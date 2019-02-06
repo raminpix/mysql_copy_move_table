@@ -1,7 +1,6 @@
 import sys
 import pymysql
 import configparser
-import string
 
 print("MySQL Copy Move Table Tool - v1.0.0 - 2019-02-06.r1")
 
@@ -30,13 +29,15 @@ except:
     
 print("Connected to " + config["DB"]["host"])    
 
-operation = "Copying"
+operation_msg = "Copying"
+operation_success_msg = "Copy"
 import_data_msg = ""
 if config["DB"]["move_table"] == "True":
-    operation = "Moving"
+    operation_msg = "Moving"
+    operation_success_msg = "Move"
 if config["DB"]["import_data"] == "True":
     import_data_msg = "with data"
-print(operation + " " + src_table_full_name + " to " + dest_table_full_name + " " + import_data_msg)
+print(operation_msg + " " + src_table_full_name + " to " + dest_table_full_name + " " + import_data_msg +"...")
 
 try:
     mycursor.execute("SHOW CREATE TABLE " + src_table_full_name)
@@ -61,4 +62,5 @@ except:
     print("Error moving tables")
     sys.exit(1)
 
+print(operation_success_msg + " " + src_table_full_name + " to " + dest_table_full_name + " " + "completed successfully.")
 sys.exit(0)
