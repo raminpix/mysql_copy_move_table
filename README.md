@@ -1,4 +1,4 @@
-# mysql_copy_move_table
+# MySQL Copy Move Table Tool
 A python script to copy or move a table between different schema in a MySQL database.
 
 To use this tool set the following values in the config file(config.ini):
