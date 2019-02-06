@@ -1,7 +1,6 @@
 import sys
 import pymysql
 import configparser
-import string
 
 print("MySQL Copy Move Table Tool - v1.0.0 - 2019-02-06.r1")
 
